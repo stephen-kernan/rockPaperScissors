@@ -1,0 +1,46 @@
+body {
+    background: url(bg.jpg) center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.alerts, .score {
+    display: block;
+    text-align: center;
+    font-family: 'Teko', sans-serif;
+    font-size: 2em;
+    color: black;
+    text-shadow: .01em .01em black;
+    background-color: hsl(27, 100%, 98%);
+    border-radius: .2em;
+    border: 0.1em solid black;
+    margin-top: 5vh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+    max-width: 50vw;
+    box-shadow: 0 .1em .1em black;
+}
+
+.weapons {
+    display: flex;
+    flex: 2;
+    min-height: 50vh;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    font-family: 'Teko', sans-serif;
+    color: black;
+    font-size: 2em;
+    background-color: hsl(30, 60%, 98%);
+    padding: 3em;
+    margin: 3vw;
+    border-radius: .2em;
+    border: .1em solid black;
+    box-shadow: 0 .1em .1em black;
+}
+.footer {
+    min-height: 100vh;
+}

@@ -4,8 +4,27 @@
     <meta charset="utf-8" />
     <title>Rock, Paper, Scissors</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="rock-paper-scissors-stylesheet.css">
+    <link href="https://fonts.googleapis.com/css?family=Teko:600" rel="stylesheet">
 </head>
 <body>
+    <div class="key">
+        <span class="alerts">Choose your weapon:</span>
+    </div>
+    <div class="weapons">
+        <button class="key">
+            <span class="weapon">Rock</span>
+        </button>
+        <button class="key">
+            <span class="weapon">Paper</span>
+        </button>
+        <button class="key">
+            <span class="weapon">Scissors</span>
+        </button>
+    </div>
+    <div id="footer">
+        <span class="score">User Score: 0 | CPU Score: 0</span>
+    </div>
     <script>
         let responses = ['rock', 'paper', 'scissors'];
         let userScore = 0;
@@ -14,9 +33,9 @@
             return responses[Math.floor(Math.random()*responses.length)]
         }
         function playGame() {
-            while (userScore<3 && computerScore<3) {
+            while (userScore<5 && computerScore<5) {
                 let computerChoice = computerPlay();
-                let userPlay = prompt("Choose your weapon"); 
+                let userPlay = ; 
                     if (userPlay.toLowerCase() === 'rock') {
                     if (computerChoice === 'rock') {
                         alert('Tied like a bow. User Score: ' + userScore + '. Computer Score: ' + computerScore);
