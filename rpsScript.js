@@ -1,69 +1,141 @@
 let responses = ['rock', 'paper', 'scissors'];
 let userScore = 0;
 let computerScore = 0;
-function computerPlay() {
+
+
+function computerChoice() {
     return responses[Math.floor(Math.random()*responses.length)]
-}
-function playGame() {
-    while (userScore<5 && computerScore<5) {
-        let computerChoice = computerPlay();
-        let userPlay;
-        document.addEventListener(click){
-            let userPlay = document.querySelector(this.value);
-        }; 
-            if (userPlay.toLowerCase() === 'rock') {
-            if (computerChoice === 'rock') {
-                alert('Tied like a bow. User Score: ' + userScore + '. Computer Score: ' + computerScore);
-            } else if (computerChoice === 'paper') {
-                computerScore++
-                alert('Paper covers rock for some reason. You lose. User Score: ' +
-                    userScore + '. Computer Score: ' + computerScore)
-            } else if (computerChoice === 'scissors') {
-                userScore++
-                alert('You have crushed the scissors. You win. User Score: ' +
-                    userScore + '. Computer Score: ' + computerScore)
-            } else {
-                userScore++
-                alert('The computer has forfeited. You win.  User Score: ' +
-                    userScore + '. Computer Score: ' + computerScore)
+};
+    window.addEventListener("click", function(e) {
+
+        e = window.event;
+
+        let target = e.target;
+        let userPlay = target.value;
+        let scoreSpan = document.getElementById('score');
+        let alertSpan = document.getElementById('alerts');
+
+        while (userScore + computerScore < 5 && userScore < 3 && computerScore < 3) { 
+
+            let computerPlay = computerChoice(); 
+            let userPlay = window.event.target.value;
+            if (userPlay === 'rock') { 
+
+                if (computerPlay === 'rock') {
+                    alertSpan.innerHTML = 'It\'s a draw.';
+                    scoreSpan.innerHTML = 'User Score: ' +
+                        userScore + '. Computer Score: ' + computerScore;
+                    return;
+                } 
+                
+                else if (computerPlay === 'paper') {
+                    computerScore++;
+                    alertSpan.innerHTML = 'You lose, because paper covers rock for some reason.';
+                    scoreSpan.innerHTML = 'User Score: ' +
+                        userScore + '. Computer Score: ' + computerScore;
+                    return;
+                } 
+                
+                else if (computerPlay === 'scissors') {
+                    userScore++;
+                    alertSpan.innerHTML = 'You win. Their scissors are crushed.';
+                    scoreSpan.innerHTML = 'User Score: ' +
+                        userScore + '. Computer Score: ' + computerScore;
+                    return;
+                } 
+                
+                else {
+                    userScore++;
+                    alertSpan.innerHTML = 'The computer has forfeited.';
+                    scoreSpan.innerHTML = 'User Score: ' +
+                        userScore + '. Computer Score: ' + computerScore;
+                    return;
+                }
+            } 
+            
+            else if (userPlay === 'paper') {
+                
+                
+                if (computerPlay === 'rock') {
+                    userScore++;
+                    alertSpan.innerHTML = 'You win because paper covers rock for some reason.';
+                    scoreSpan.innerHTML = 'User Score: ' +
+                        userScore + '. Computer Score: ' + computerScore;
+                    return;
+                } 
+                
+                else if (computerPlay === 'paper') {
+                    alertSpan.innerHTML = 'It\'s a draw. Papercuts for everybody.';
+                    scoreSpan.innerHTML = 'User Score: ' +
+                        userScore + '. Computer Score: ' + computerScore;
+                    return;
+                } 
+                
+                else if (computerPlay === 'scissors') {
+                    computerScore++;
+                    alertSpan.innerHTML = 'You lose, and your paper is now confetti.'
+                    scoreSpan.innerHTML = 'User Score: ' +
+                        userScore + '. Computer Score: ' + computerScore;
+                    return;
+                } 
+                
+                else {
+                    userScore++
+                    alertSpan.innerHTML = 'The computer has forfeited.';
+                    scoreSpan.innerHTML = 'User Score: ' +
+                        userScore + '. Computer Score: ' + computerScore;
+                    return;
+                }
+            } 
+            
+            else if (userPlay === 'scissors') {
+                if (computerPlay === 'rock') {
+                    computerScore++;
+                    alertSpan.innerHTML = 'Your scissors were crushed. You lose.';
+                    scoreSpan.innerHTML = 'User Score: ' +
+                        userScore + '. Computer Score: ' + computerScore;
+                    return;
+                } 
+                
+                else if (computerPlay === 'paper') {
+                    userScore++;
+                    alertSpan.innerHTML = 'You win. Their paper is now confetti.';
+                    scoreSpan.innerHTML = 'User Score: ' +
+                        userScore + '. Computer Score: ' + computerScore;
+                    return;
+                } 
+                
+                else if (computerPlay === 'scissors') {
+                    alertSpan.innerHTML = 'It\'s a draw.';
+                    scoreSpan.innerHTML = 'User Score: ' +
+                        userScore + '. Computer Score: ' + computerScore;
+                    return;
+                } 
+                
+                else {
+                    userScore++;
+                    alertSpan.innerHTML = 'The computer has forfeited.';
+                    scoreSpan.innerHTML = 'User Score: ' +
+                        userScore + '. Computer Score: ' + computerScore;
+                    return;
+                }
+            } 
+        };
+
+        while (userScore + computerScore === 5 || userScore === 3 || computerScore === 3) {
+            
+            if (userScore > computerScore) {
+                alertSpan.innerHTML = 'You win. Choose your weapon to play again.';
+                scoreSpan.innerHTML = 'User Score: 0. Computer Score: 0';
+                computerScore = 0;
+                userScore = 0;
+            } 
+            
+            else if (userScore < computerScore) {
+                alertSpan.innerHTML = 'You lose. Choose your weapon to try again.';
+                scoreSpan.innerHTML = 'User Score: 0. Computer Score: 0';
+                computerScore = 0;
+                userScore = 0;
             }
-        } else if (userPlay.toLowerCase() === 'paper') {
-            if (computerChoice === 'rock') {
-                userScore++;
-                alert('Paper covers rock for some reason. You win. User Score: ' +
-                    userScore + '. Computer Score: ' + computerScore)
-            } else if (computerChoice === 'paper') {
-                alert('Papercuts for everybody. It\'s a draw. User Score: ' +
-                    userScore + '. Computer Score: ' + computerScore)
-            } else if (computerChoice === 'scissors') {
-                computerScore++;
-                alert('Even against safety scissors, you never stood a chance. You lose.  User Score: ' +
-                    userScore + '. Computer Score: ' + computerScore)
-            } else {
-                userScore++
-                alert('The computer has forfeited. You win.  User Score: ' +
-                    userScore + '. Computer Score: ' + computerScore)
-            }
-        } else if (userPlay.toLowerCase() === 'scissors') {
-            if (computerChoice === 'rock') {
-                computerScore++;
-                alert('You were crushed.  User Score: ' +
-                    userScore + '. Computer Score: ' + computerScore)
-            } else if (computerChoice === 'paper') {
-                userScore++;
-                alert('You have turned their paper into confetti. You win. User Score: ' +
-                    userScore + '. Computer Score: ' + computerScore)
-            } else if (computerChoice === 'scissors') {
-                alert('Neither can live while the other survives. It\s a draw.  User Score: ' +
-                    userScore + '. Computer Score: ' + computerScore)
-            } else {
-                userScore++
-                alert('The computer has forfeited. You win.  User Score: ' +
-                    userScore + '. Computer Score: ' + computerScore)
-            }
-        } else {
-        alert('That weapon is not allowed in this hallowed competition. Please choose another.')
-        }
-    } 
-}
-playGame();
+        };
+    }, false);

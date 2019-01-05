@@ -1,10 +1,10 @@
 body {
-    background: url(bg.jpg) center center;
+    background: url(https://unsplash.com/photos/GmN13w9bg8w) center center;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-.alerts, .score {
+#alerts, #score {
     display: block;
     text-align: center;
     font-family: 'Teko', sans-serif;
@@ -40,6 +40,7 @@ button {
     border-radius: .2em;
     border: .1em solid black;
     box-shadow: 0 .1em .1em black;
+    cursor: pointer;
 }
 .footer {
     min-height: 100vh;
